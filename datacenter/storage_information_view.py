@@ -21,8 +21,8 @@ def is_visit_long(visit, minutes=60):
 
 def storage_information_view(request):
     non_closed_visits = []
-    all_visits = Visit.objects.all()
-    for visit in all_visits.filter(leaved_at=None):
+    people_in_storage = Visit.objects.filter(leaved_at=None)
+    for visit in people_in_storage:
         duration = Visit.get_duration(visit)
         suspicion = is_visit_long(duration)
         duration = format_duration(duration)

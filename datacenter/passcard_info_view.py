@@ -10,8 +10,8 @@ from django.shortcuts import get_object_or_404
 def passcard_info_view(request, passcode):
     this_passcard_visits = []
     passcard = get_object_or_404(Passcard, passcode=passcode)
-    all_visits = Visit.objects.all()
-    for visit in all_visits.filter(passcard=passcard):
+    all_person_visits = Visit.objects.filter(passcard=passcard)
+    for visit in all_person_visits:
         duration = Visit.get_duration(visit)
         suspicion = is_visit_long(duration)
         duration = format_duration(duration)
