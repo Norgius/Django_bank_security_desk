@@ -10,8 +10,7 @@ def storage_information_view(request):
         duration = Visit.get_duration(visit)
         suspicion = is_visit_long(duration)
         duration = format_duration(duration)
-        entry_time = timezone.localtime(
-            visit.entered_at).strftime('%d-%m-%Y %H:%M')
+        entry_time = timezone.localtime(visit.entered_at)
         owner_name = visit.passcard.owner_name
         non_closed_visit = {
                 'who_entered': owner_name,

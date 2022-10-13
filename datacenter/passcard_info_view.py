@@ -12,8 +12,7 @@ def passcard_info_view(request, passcode):
         duration = Visit.get_duration(visit)
         suspicion = is_visit_long(duration)
         duration = format_duration(duration)
-        entry_time = timezone.localtime(
-            visit.entered_at).strftime('%d-%m-%Y %H:%M')
+        entry_time = timezone.localtime(visit.entered_at)
         this_passcard_visit = {
                 'entered_at': entry_time,
                 'duration': duration,
