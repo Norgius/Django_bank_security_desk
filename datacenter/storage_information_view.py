@@ -1,22 +1,6 @@
-from datacenter.models import Visit
+from datacenter.models import Visit, is_visit_long, format_duration
 from django.shortcuts import render
 from django.utils import timezone
-
-
-def format_duration(duration):
-    sec = duration % (24 * 3600)
-    hour = sec // 3600
-    sec %= 3600
-    min = sec // 60
-    duration = '%02d:%02d' % (int(hour), int(min))
-    return duration
-
-
-def is_visit_long(visit, minutes=60):
-    visiting_time_limit = visit // (minutes * 60)
-    if visiting_time_limit:
-        return True
-    return False
 
 
 def storage_information_view(request):
