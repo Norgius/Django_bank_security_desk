@@ -11,8 +11,8 @@ def format_duration(duration):
     return duration
 
 
-def is_visit_long(visit, minutes=60):
-    visiting_time_limit = visit // (minutes * 60)
+def is_visit_long(duration, minutes=60):
+    visiting_time_limit = duration // (minutes * 60)
     return visiting_time_limit > 0
 
 
